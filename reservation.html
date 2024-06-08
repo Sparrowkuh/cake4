@@ -27,6 +27,11 @@
                             };
 
                             var map = new naver.maps.Map('map', mapOptions);
+                             naver.maps.Event.once(map, 'init_stylemap', function() {
+                                window.setTimeout(function() {
+                                    naver.maps.Event.trigger(map, 'resize');
+                                }, 500); // Adjust timing as needed
+                            });
                         </script>
                         <script type="text/javascript">
                             // 현재 위치를 얻는 함수
