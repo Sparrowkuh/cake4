@@ -55,13 +55,20 @@
          <script>
                     var mapOptions = {
                         center: new naver.maps.LatLng(37.5666805, 126.9784147), // 서울 시청을 중심으로 설정
-                        zoom: 10,
+                        zoom: 16,
                         zoomControl: true, // 확대/축소 컨트롤 활성화
-                        minZoom: 5, // 최소 확대 레벨
+                        minZoom: 10, // 최소 확대 레벨
                         maxZoom: 18 // 최대 확대 레벨
                     };
                 
                     var map = new naver.maps.Map('map', mapOptions);
+
+
+                    
+                    /* 변경점 */
+                    naver.maps.Event.once(map, 'init', function () {
+                        console.log('올바른 참조 시점', map.getOptions('minZoom') === 10);
+                    });
                 
                     // 마커 설정 및 마커 생성
                     var marker = new naver.maps.Marker({
