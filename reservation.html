@@ -55,18 +55,21 @@
          <script>
                     var mapOptions = {
                         center: new naver.maps.LatLng(37.5666805, 126.9784147), // 서울 시청을 중심으로 설정
-                        zoom: 10
+                        zoom: 10,
+                        zoomControl: true, // 확대/축소 컨트롤 활성화
+                        minZoom: 5, // 최소 확대 레벨
+                        maxZoom: 18 // 최대 확대 레벨
                     };
-
+                
                     var map = new naver.maps.Map('map', mapOptions);
-
+                
                     // 마커 설정 및 마커 생성
                     var marker = new naver.maps.Marker({
                         position: mapOptions.center,
                         map: map,
                         icon: { url: "/common/img/marker-target.png" }
                     });
-
+                
                     // 마커 클릭 이벤트 핸들러
                     naver.maps.Event.addListener(marker, 'click', function() {
                         alert("Marker at Seoul City Hall");
