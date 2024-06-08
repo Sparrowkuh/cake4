@@ -62,8 +62,11 @@
                             }
                         
                             naver.maps.Event.addListener(marker, 'click', markerClickHandler());
-                        
+
+                            
                             // 맵 시청정 중앙 위치로 이동 처리 함수 (최초마커로 이동 버튼을 추가)
+                           var csControl = new naver.maps.CustomControl(curBtn, {
+                                    position: naver.maps.Position.RIGHT_TOP
                             naver.maps.Event.once(map, 'init_stylemap', function() {
                                 // 최초 마커로 이동 버튼을 CustomControl에 설정
                                 // 컨트롤 위치는 맵 오른쪽 상단
